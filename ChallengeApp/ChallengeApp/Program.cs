@@ -56,27 +56,42 @@ foreach(var day in dayOfWeeks)
 int number = 12797;
 string numberAsString = number.ToString(); //zamiana liczby na string
 char[] digits = numberAsString.ToCharArray(); //zamiana string na tablice char
+List<char> numbers = new List<char>();
 
-List<char> digit = new List<char>();
-
-digit.Add('0');
-digit.Add('1');
-digit.Add('2');
-digit.Add('3');
-digit.Add('4');
-digit.Add('5');
-digit.Add('6');
-digit.Add('7');
-digit.Add('8');
-digit.Add('9');
+numbers.Add('0');
+numbers.Add('1');
+numbers.Add('2');
+numbers.Add('3');
+numbers.Add('4');
+numbers.Add('5');
+numbers.Add('6');
+numbers.Add('7');
+numbers.Add('8');
+numbers.Add('9');
 
 
-foreach (var isDigit in digit)
+foreach (var digit in numbers)
 {
     int count = 0;
-    foreach (var i in digits)
+    foreach (var d in digits)
     {
-        if (isDigit == i) count++;
+        if (digit == d) count++;
     }
-    Console.WriteLine(isDigit + " ===> " + count);
+    Console.WriteLine(digit + " ===> " + count);
 }
+
+/*
+ //albo for zamiast foreach
+for (int i = 0; i < numbers.Count; i++)
+{
+    var counter = 0;
+    foreach (var d in digits)
+    {
+        if (numbers[i] == d)
+        {
+            counter++;
+        }
+    }
+    Console.WriteLine(i + " ===> " + counter);
+}
+*/
