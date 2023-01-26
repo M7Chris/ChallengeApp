@@ -1,168 +1,79 @@
-﻿//day 5
+﻿// 1.Stwórz klase Employee (imie, nazwisko, wiek, pkty (int) )
+// 2.Stwórz 3 pracownikow i każdemu przydziel po 5 ocen (1-10)
+// 3. Napisz program, który wyszuka pracownika z max liczba ocen i wyswietli go z jego wynikiem
 
-//pierwszy sposob deklarowania tablic
-/*
-int[] grades = new int[5];
-string[] dayOfWeeks = new string[7];
-dayOfWeeks[0] = "monday";
-dayOfWeeks[1] = "tuesday";
-dayOfWeeks[2] = "wednesday";
-dayOfWeeks[3] = "thursday";
-dayOfWeeks[4] = "friday";
-dayOfWeeks[5] = "saturday";
-dayOfWeeks[6] = "sunday";
-*/
+using ChallengeApp;
+using System.Diagnostics.CodeAnalysis;
 
-//drugi sposob deklarowania tablic
-//string[] dayOfWeeks2 = {"monday","tuesday","wednesday","thursday","friday","saturday","sunday"};
-//Console.WriteLine(dayOfWeeks2[3]);
+Employee employee1 = new Employee("Chris", "Walken", 79);
+Employee employee2 = new Employee("Michael", "Duncan", 54);
+Employee employee3 = new Employee("Monica", "Cassel", 58);
 
-//petla for
-/*
-for(var i=0; i<dayOfWeeks.Length; i++)
+
+employee1.AddScore(4);
+employee1.AddScore(2);
+employee1.AddScore(3);
+employee1.AddScore(4);
+employee1.AddScore(8); 
+// sum:21
+
+employee2.AddScore(7);
+employee2.AddScore(3);
+employee2.AddScore(6);
+employee2.AddScore(2);
+employee2.AddScore(4); 
+//sum:22
+
+employee3.AddScore(2);
+employee3.AddScore(5);
+employee3.AddScore(6);
+employee3.AddScore(9);
+employee3.AddScore(1);
+//sum:23
+
+var result1 = employee1.Result;
+var result2 = employee2.Result;
+var result3 = employee3.Result;
+
+if (result1 >= result2 && result1 >= result3)
 {
-    Console.WriteLine(dayOfWeeks[i]);
-}
-*/
-
-//Listy
-/*
-List<string> dayOfWeeks = new List<string>();
-dayOfWeeks.Add("monday");
-dayOfWeeks.Add("tuesday");
-dayOfWeeks.Add("wednesday");
-dayOfWeeks.Add("thursday");
-dayOfWeeks.Add("friday");
-dayOfWeeks.Add("saturday");
-dayOfWeeks.Add("sunday");
-*/
-/*
-for (var i = 0; i < dayOfWeeks.Count; i++)
-{
-    Console.WriteLine(dayOfWeeks[i]);
-}
-*/
-
-//petla foreach
-/*
-foreach(var day in dayOfWeeks)
-{
-    Console.WriteLine(day);
-}
-*/
-
-//ile cyfr wystepuje w danej liczbie?
-
-int number = 12797;
-string numberAsString = number.ToString(); //zamiana liczby na string
-char[] digits = numberAsString.ToCharArray(); //zamiana string na tablice char
-List<char> numbers = new List<char>();
-
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
-
-foreach (char d in digits)
-{
-    if (d == '0')
+    if (result1 == result2)
     {
-        counter0++;
+        Console.WriteLine($" The employee {employee1.Name} {employee1.Surname}, {employee1.Age} years old, get the same score as {employee2.Name} {employee2.Surname} {employee2.Age} years old, and it's: {result1}");
     }
-    else if (d == '1')
+    else if (result1 == result3) 
     {
-        counter1++;
+        Console.WriteLine($" The employee {employee1.Name}, {employee1.Surname} {employee1.Age} years old, get the same score as {employee3.Name} {employee3.Surname} {employee3.Age} years old, and it's: {result1}");
     }
-    else if (d == '2')
+    else
     {
-        counter2++;
-    }
-    else if (d == '3')
-    {
-        counter3++;
-    }
-    else if (d == '4')
-    {
-        counter4++;
-    }
-    else if (d == '5')
-    {
-        counter5++;
-    }
-    else if (d == '6')
-    {
-        counter6++;
-    }
-    else if (d == '7')
-    {
-        counter7++;
-    }
-    else if (d == '8')
-    {
-        counter8++;
-    }
-    else if (d == '9')
-    {
-        counter9++;
-    }
-   
-    {
-        Console.WriteLine(digits);
-        Console.WriteLine($"0 pojawia się {counter0} raz/y");
-        Console.WriteLine($"1 pojawia się {counter1} raz/y");
-        Console.WriteLine($"2 pojawia się {counter2} raz/y");
-        Console.WriteLine($"3 pojawia się {counter3} raz/y");
-        Console.WriteLine($"4 pojawia się {counter4} raz/y");
-        Console.WriteLine($"5 pojawia się {counter5} raz/y");
-        Console.WriteLine($"6 pojawia się {counter6} raz/y");
-        Console.WriteLine($"7 pojawia się {counter7} raz/y");
-        Console.WriteLine($"8 pojawia się {counter8} raz/y");
-        Console.WriteLine($"9 pojawia się {counter9} raz/y");
+        Console.WriteLine($" The employee with max score is {employee1.Name} {employee1.Surname} {employee1.Age} years old, with MAX {employee1.Result} score!");
     }
 }
-
-/*
-numbers.Add('0');
-numbers.Add('1');
-numbers.Add('2');
-numbers.Add('3');
-numbers.Add('4');
-numbers.Add('5');
-numbers.Add('6');
-numbers.Add('7');
-numbers.Add('8');
-numbers.Add('9');
-
-
-foreach (var digit in numbers)
-{
-    int count = 0;
-    foreach (var d in digits)
+else if (result2 >= result1 && result2 >= result3)
+    if (result2 == result1)
     {
-        if (digit == d) count++;
+        Console.WriteLine($" The employee {employee2.Name} {employee2.Surname} {employee2.Age} years old, get the same score as {employee1.Name} {employee1.Surname} {employee1.Age} years old, and it's: {result2}");
     }
-    Console.WriteLine(digit + " ===> " + count);
-}
-*/
-
-/*
- //albo for zamiast foreach
-for (int i = 0; i < numbers.Count; i++)
-{
-    var counter = 0;
-    foreach (var d in digits)
+    else if (result2 == result3)
     {
-        if (numbers[i] == d)
-        {
-            counter++;
-        }
+        Console.WriteLine($" The employee {employee2.Name} {employee2.Surname} {employee2.Age} years old, get the same score as {employee3.Name} {employee3.Surname} {employee3.Age} years old, and it's: {result2}");
     }
-    Console.WriteLine(i + " ===> " + counter);
-}
-*/
+    else
+    {
+        Console.WriteLine($" The employee with max score is {employee2.Name} {employee2.Surname}, {employee2.Age} years old, with MAX {employee2.Result} score!");
+    }
+
+else if (result3 >= result1 && result3 >= result2)
+    if (result3 == result1)
+    {
+        Console.WriteLine($" The employee {employee3.Name} {employee3.Surname} {employee3.Age} years old, get the same score as {employee1.Name} {employee1.Surname} {employee1.Age} years old, and it's: {result3}");
+    }
+    else if (result3 == result2)
+    {
+        Console.WriteLine($" The employee {employee3.Name} {employee3.Surname} {employee3.Age} years old, get the same score as  {employee2.Name}   {employee2.Surname}   {employee2.Age}  years old, and it's: {result3}");
+    }
+    else
+    {
+        Console.WriteLine($" The employee with max score is {employee3.Name} {employee3.Surname}, {employee3.Age} years old, with MAX {employee3.Result} score!");
+    }
