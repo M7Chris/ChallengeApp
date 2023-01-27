@@ -14,14 +14,14 @@ employee1.AddScore(4);
 employee1.AddScore(2);
 employee1.AddScore(3);
 employee1.AddScore(4);
-employee1.AddScore(8); 
+employee1.AddScore(8);
 // sum:21
 
 employee2.AddScore(7);
 employee2.AddScore(3);
 employee2.AddScore(6);
 employee2.AddScore(2);
-employee2.AddScore(4); 
+employee2.AddScore(4);
 //sum:22
 
 employee3.AddScore(2);

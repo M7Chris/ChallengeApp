@@ -20,7 +20,6 @@
                 return this.score.Sum();
             }
         }
-
         public void AddScore(int newScore)
         {
             this.score.Add(newScore);
