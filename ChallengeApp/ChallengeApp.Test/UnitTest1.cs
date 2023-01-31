@@ -3,31 +3,31 @@ namespace ChallengeApp.Test
     public class Tests
     {
         [Test]
-        public void WhenEmployeeCollectScores_ShouldCollectSumAsResult()
+        public void WhenUserCollectScores_ShouldCollectSumAsResult()
         {
             //arrange
-            var employee = new Employee("ChrisM", "Walken", 43);
-            employee.AddScore(5);
-            employee.AddScore(2);
+            var user = new User("ChrisM", "Walken", 79);
+            user.AddScore(5);
+            user.AddScore(2);
 
             //act
-            var result = employee.Result;
+            var  result = user.Result;
             
             //assert
             Assert.AreEqual(7, result);
         }
 
         [Test]
-        public void WhenEmployeeCollectScores_ShouldCollectTotalAsResult()
+        public void WhenUserCollectScores_ShouldCollectTotalAsResult()
         {
             //arrange
-            var employee = new Employee("Monica", "Keanuen", 44);
-            employee.AddScore(5);
-            employee.AddScore(1);
-            employee.AddScore(-2);
+            var user = new User("Monica", "Keanuen", 58);
+            user.AddScore(5);
+            user.AddScore(1);
+            user.AddScore(-2);
 
             //act
-            var result = employee.Result;
+            var result = user.Result;
 
             //assert
             Assert.AreEqual(4, result);
